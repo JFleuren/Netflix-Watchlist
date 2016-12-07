@@ -8,20 +8,41 @@
 
 /* Begin PBXBuildFile section */
 		1442CD111DF8534B00D400EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD101DF8534B00D400EB /* AppDelegate.swift */; };
-		1442CD131DF8534B00D400EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD121DF8534B00D400EB /* ViewController.swift */; };
 		1442CD161DF8534B00D400EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1442CD141DF8534B00D400EB /* Main.storyboard */; };
 		1442CD181DF8534B00D400EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1442CD171DF8534B00D400EB /* Assets.xcassets */; };
 		1442CD1B1DF8534B00D400EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1442CD191DF8534B00D400EB /* LaunchScreen.storyboard */; };
+		1442CD231DF85ADE00D400EB /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD221DF85ADE00D400EB /* WatchListViewController.swift */; };
+		1442CD251DF85DFD00D400EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD241DF85DFD00D400EB /* LoginViewController.swift */; };
+		1442CD2D1DF86DB800D400EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1442CD2C1DF86DB800D400EB /* GoogleService-Info.plist */; };
+		1442CD331DF873C400D400EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD321DF873C400D400EB /* User.swift */; };
+		1442CD391DF88A9000D400EB /* WatchListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD381DF88A9000D400EB /* WatchListCellTableViewCell.swift */; };
+		1442CD3C1DF8916100D400EB /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD3B1DF8916100D400EB /* Movie.swift */; };
+		1442CD3E1DF8A13C00D400EB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD3D1DF8A13C00D400EB /* SearchViewController.swift */; };
+		1442CD401DF8A4A200D400EB /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD3F1DF8A4A200D400EB /* MovieDetailsViewController.swift */; };
+		1442CD451DF8A81100D400EB /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD441DF8A81100D400EB /* SearchViewCell.swift */; };
+		8D1A5A7405B6494E18A5A002 /* Pods_Netflix_Watchlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F682464B0C3B00683095C99 /* Pods_Netflix_Watchlist.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1442CD0D1DF8534B00D400EB /* Netflix Watchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netflix Watchlist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1442CD101DF8534B00D400EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1442CD121DF8534B00D400EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1442CD151DF8534B00D400EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1442CD171DF8534B00D400EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1442CD1A1DF8534B00D400EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1442CD1C1DF8534B00D400EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1442CD221DF85ADE00D400EB /* WatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
+		1442CD241DF85DFD00D400EB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1442CD2B1DF86CB300D400EB /* Netflix Watchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netflix Watchlist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1442CD2C1DF86DB800D400EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1442CD2E1DF86FB400D400EB /* Netflix Watchlist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Netflix Watchlist.entitlements"; sourceTree = "<group>"; };
+		1442CD321DF873C400D400EB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1442CD381DF88A9000D400EB /* WatchListCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchListCellTableViewCell.swift; sourceTree = "<group>"; };
+		1442CD3B1DF8916100D400EB /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		1442CD3D1DF8A13C00D400EB /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1442CD3F1DF8A4A200D400EB /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		1442CD441DF8A81100D400EB /* SearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
+		3F682464B0C3B00683095C99 /* Pods_Netflix_Watchlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Netflix_Watchlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6949F0F39AC5B5A46E763DB7 /* Pods-Netflix Watchlist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Netflix Watchlist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Netflix Watchlist/Pods-Netflix Watchlist.debug.xcconfig"; sourceTree = "<group>"; };
+		846FB99E3EE01CA39073B2E4 /* Pods-Netflix Watchlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Netflix Watchlist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Netflix Watchlist/Pods-Netflix Watchlist.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D1A5A7405B6494E18A5A002 /* Pods_Netflix_Watchlist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,29 +61,73 @@
 			isa = PBXGroup;
 			children = (
 				1442CD0F1DF8534B00D400EB /* Netflix Watchlist */,
-				1442CD0E1DF8534B00D400EB /* Products */,
+				1442CD2B1DF86CB300D400EB /* Netflix Watchlist.app */,
+				BF963F9D07B3CE2904DC209A /* Pods */,
+				90F01C9E5A0B5AF5E3B3D8C4 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		1442CD0E1DF8534B00D400EB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1442CD0D1DF8534B00D400EB /* Netflix Watchlist.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		1442CD0F1DF8534B00D400EB /* Netflix Watchlist */ = {
 			isa = PBXGroup;
 			children = (
+				1442CD2E1DF86FB400D400EB /* Netflix Watchlist.entitlements */,
+				1442CD2C1DF86DB800D400EB /* GoogleService-Info.plist */,
+				1442CD421DF8A7BE00D400EB /* ViewControllers */,
+				1442CD471DF8A9E400D400EB /* WL and Search CellViews */,
+				1442CD431DF8A7D200D400EB /* User and Item Structs */,
 				1442CD101DF8534B00D400EB /* AppDelegate.swift */,
-				1442CD121DF8534B00D400EB /* ViewController.swift */,
 				1442CD141DF8534B00D400EB /* Main.storyboard */,
 				1442CD171DF8534B00D400EB /* Assets.xcassets */,
 				1442CD191DF8534B00D400EB /* LaunchScreen.storyboard */,
 				1442CD1C1DF8534B00D400EB /* Info.plist */,
 			);
 			path = "Netflix Watchlist";
+			sourceTree = "<group>";
+		};
+		1442CD421DF8A7BE00D400EB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1442CD241DF85DFD00D400EB /* LoginViewController.swift */,
+				1442CD221DF85ADE00D400EB /* WatchListViewController.swift */,
+				1442CD3D1DF8A13C00D400EB /* SearchViewController.swift */,
+				1442CD3F1DF8A4A200D400EB /* MovieDetailsViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1442CD431DF8A7D200D400EB /* User and Item Structs */ = {
+			isa = PBXGroup;
+			children = (
+				1442CD3B1DF8916100D400EB /* Movie.swift */,
+				1442CD321DF873C400D400EB /* User.swift */,
+			);
+			name = "User and Item Structs";
+			sourceTree = "<group>";
+		};
+		1442CD471DF8A9E400D400EB /* WL and Search CellViews */ = {
+			isa = PBXGroup;
+			children = (
+				1442CD441DF8A81100D400EB /* SearchViewCell.swift */,
+				1442CD381DF88A9000D400EB /* WatchListCellTableViewCell.swift */,
+			);
+			name = "WL and Search CellViews";
+			sourceTree = "<group>";
+		};
+		90F01C9E5A0B5AF5E3B3D8C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F682464B0C3B00683095C99 /* Pods_Netflix_Watchlist.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF963F9D07B3CE2904DC209A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6949F0F39AC5B5A46E763DB7 /* Pods-Netflix Watchlist.debug.xcconfig */,
+				846FB99E3EE01CA39073B2E4 /* Pods-Netflix Watchlist.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1442CD1F1DF8534B00D400EB /* Build configuration list for PBXNativeTarget "Netflix Watchlist" */;
 			buildPhases = (
+				05369C94DDF8BC23D96EC7DF /* [CP] Check Pods Manifest.lock */,
 				1442CD091DF8534B00D400EB /* Sources */,
 				1442CD0A1DF8534B00D400EB /* Frameworks */,
 				1442CD0B1DF8534B00D400EB /* Resources */,
+				3C09C19782770B212771EA83 /* [CP] Embed Pods Frameworks */,
+				DB1491EF43BE14965BA99ED1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -81,7 +150,7 @@
 			);
 			name = "Netflix Watchlist";
 			productName = "Netflix Watchlist";
-			productReference = 1442CD0D1DF8534B00D400EB /* Netflix Watchlist.app */;
+			productReference = 1442CD2B1DF86CB300D400EB /* Netflix Watchlist.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,6 +167,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 2JKKE59VQN;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -110,7 +184,7 @@
 				Base,
 			);
 			mainGroup = 1442CD041DF8534A00D400EB;
-			productRefGroup = 1442CD0E1DF8534B00D400EB /* Products */;
+			productRefGroup = 1442CD041DF8534A00D400EB;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -125,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1442CD1B1DF8534B00D400EB /* LaunchScreen.storyboard in Resources */,
+				1442CD2D1DF86DB800D400EB /* GoogleService-Info.plist in Resources */,
 				1442CD181DF8534B00D400EB /* Assets.xcassets in Resources */,
 				1442CD161DF8534B00D400EB /* Main.storyboard in Resources */,
 			);
@@ -132,12 +207,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		05369C94DDF8BC23D96EC7DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3C09C19782770B212771EA83 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Netflix Watchlist/Pods-Netflix Watchlist-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB1491EF43BE14965BA99ED1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Netflix Watchlist/Pods-Netflix Watchlist-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1442CD091DF8534B00D400EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1442CD131DF8534B00D400EB /* ViewController.swift in Sources */,
+				1442CD401DF8A4A200D400EB /* MovieDetailsViewController.swift in Sources */,
+				1442CD391DF88A9000D400EB /* WatchListCellTableViewCell.swift in Sources */,
+				1442CD3E1DF8A13C00D400EB /* SearchViewController.swift in Sources */,
+				1442CD451DF8A81100D400EB /* SearchViewCell.swift in Sources */,
+				1442CD331DF873C400D400EB /* User.swift in Sources */,
+				1442CD3C1DF8916100D400EB /* Movie.swift in Sources */,
+				1442CD251DF85DFD00D400EB /* LoginViewController.swift in Sources */,
+				1442CD231DF85ADE00D400EB /* WatchListViewController.swift in Sources */,
 				1442CD111DF8534B00D400EB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,8 +389,10 @@
 		};
 		1442CD201DF8534B00D400EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6949F0F39AC5B5A46E763DB7 /* Pods-Netflix Watchlist.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Netflix Watchlist/Netflix Watchlist.entitlements";
 				DEVELOPMENT_TEAM = 2JKKE59VQN;
 				INFOPLIST_FILE = "Netflix Watchlist/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -272,8 +404,10 @@
 		};
 		1442CD211DF8534B00D400EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 846FB99E3EE01CA39073B2E4 /* Pods-Netflix Watchlist.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Netflix Watchlist/Netflix Watchlist.entitlements";
 				DEVELOPMENT_TEAM = 2JKKE59VQN;
 				INFOPLIST_FILE = "Netflix Watchlist/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -302,6 +436,7 @@
 				1442CD211DF8534B00D400EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

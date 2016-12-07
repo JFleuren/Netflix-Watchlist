@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UgN-Wc-mO2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hGa-Jb-LU7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Netflix_Watchlist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Netflix_Watchlist" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,13 +23,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="ask-hO-AdB">
-                                <rect key="frame" x="26" y="74" width="323" height="583"/>
+                                <rect key="frame" x="26" y="30" width="323" height="627"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kpw-wM-4ps" userLabel="App title SV">
-                                        <rect key="frame" x="63" y="0.0" width="197" height="323"/>
+                                        <rect key="frame" x="63" y="0.0" width="197" height="367"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Netflix Watchlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKS-fA-A06">
-                                                <rect key="frame" x="0.0" y="0.0" width="197" height="323"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="197" height="367"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
                                                 <color key="textColor" red="1" green="0.024295031054001104" blue="0.052422039898738948" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tRN-cJ-Vg0" userLabel="Middle SV">
-                                        <rect key="frame" x="11.5" y="393" width="300" height="60"/>
+                                        <rect key="frame" x="11.5" y="437" width="300" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ho-Zm-1NO" userLabel="Login Label &amp; Input SV">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
@@ -106,7 +106,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Ff-vO-Ja3" userLabel="Lower SV">
-                                        <rect key="frame" x="133" y="523" width="57" height="60"/>
+                                        <rect key="frame" x="133" y="567" width="57" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="x30-X6-lwl" userLabel="Go! SV">
                                                 <rect key="frame" x="0.0" y="0.0" width="57" height="30"/>
@@ -114,6 +114,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vL-s3-bAr">
                                                         <rect key="frame" x="0.0" y="0.0" width="57" height="30"/>
                                                         <state key="normal" title="Go!"/>
+                                                        <connections>
+                                                            <action selector="goTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pm4-TQ-HVl"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -123,6 +126,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoV-JV-Zsh">
                                                         <rect key="frame" x="0.0" y="0.0" width="57" height="30"/>
                                                         <state key="normal" title="Register"/>
+                                                        <connections>
+                                                            <action selector="registerTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="29b-Lu-rnx"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -143,28 +149,281 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wgY-M9-bDW"/>
+                    <connections>
+                        <outlet property="goButton" destination="7vL-s3-bAr" id="23R-uF-auf"/>
+                        <outlet property="registerButton" destination="RoV-JV-Zsh" id="yng-rG-rl0"/>
+                        <outlet property="textFieldLoginEmail" destination="USv-bQ-j0G" id="vGB-ja-Hg1"/>
+                        <outlet property="textFieldLoginPassword" destination="j7s-kJ-vb9" id="jes-Yj-3UB"/>
+                        <segue destination="2bb-BJ-jao" kind="show" identifier="LoginToList" id="ymq-8Q-USb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2015.2" y="138.98050974512745"/>
+        </scene>
+        <!--Watch List View Controller-->
+        <scene sceneID="qfj-ab-Tol">
+            <objects>
+                <viewController id="2bb-BJ-jao" customClass="WatchListViewController" customModule="Netflix_Watchlist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dZy-My-ejm"/>
+                        <viewControllerLayoutGuide type="bottom" id="oCe-X0-vbp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c8T-zG-RQD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jDz-4B-pkP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Ck-x9-9cE" userLabel="Table View SV">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="583"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FBV-47-3P3">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="583"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="130" id="Ubs-LQ-VBU" customClass="WatchListCellTableViewCell" customModule="Netflix_Watchlist" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="375" height="130"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ubs-LQ-VBU" id="2to-i4-rjV">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="title" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0Z-92-Ie0">
+                                                                    <rect key="frame" x="105" y="8" width="262" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yt3-cl-1Nm">
+                                                                    <rect key="frame" x="105" y="37" width="262" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srb-5L-lil">
+                                                                    <rect key="frame" x="105" y="61" width="262" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Runtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIa-q1-PGg">
+                                                                    <rect key="frame" x="105" y="83" width="262" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Netflix Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcv-Co-FcI">
+                                                                    <rect key="frame" x="105" y="100" width="262" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ThT-b3-n9O">
+                                                                    <rect key="frame" x="8" y="8" width="89" height="113"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="netflixRateLabel" destination="Wcv-Co-FcI" id="Ym5-3B-NYe"/>
+                                                            <outlet property="posterImageView" destination="ThT-b3-n9O" id="M00-3y-8uG"/>
+                                                            <outlet property="runtimeLabel" destination="NIa-q1-PGg" id="dTt-rd-fOH"/>
+                                                            <outlet property="titleLabel" destination="K0Z-92-Ie0" id="pPX-lo-Ilq"/>
+                                                            <outlet property="typeLabel" destination="yt3-cl-1Nm" id="wUa-mE-6NW"/>
+                                                            <outlet property="yearLabel" destination="Srb-5L-lil" id="tGO-2D-ftg"/>
+                                                        </connections>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AfN-MG-8Jo" userLabel="Search Button SV">
+                                        <rect key="frame" x="0.0" y="583" width="375" height="20"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aR-PH-WIU">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <state key="normal" title="Search Movies"/>
+                                                <connections>
+                                                    <action selector="searchButtonTapped:" destination="2bb-BJ-jao" eventType="touchUpInside" id="f2P-c7-SOD"/>
+                                                    <segue destination="5eA-De-SRC" kind="show" identifier="searchSegue" id="wY6-BQ-0dQ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="jDz-4B-pkP" secondAttribute="trailing" id="9zk-Qd-11g"/>
+                            <constraint firstItem="jDz-4B-pkP" firstAttribute="leading" secondItem="c8T-zG-RQD" secondAttribute="leading" id="Jm9-p0-xot"/>
+                            <constraint firstItem="jDz-4B-pkP" firstAttribute="top" secondItem="dZy-My-ejm" secondAttribute="bottom" id="mYo-NS-vMJ"/>
+                            <constraint firstAttribute="bottom" secondItem="jDz-4B-pkP" secondAttribute="bottom" id="nQl-yn-hRk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchButton" destination="2aR-PH-WIU" id="uNw-E1-T2y"/>
+                        <outlet property="tableView" destination="FBV-47-3P3" id="Dy2-Sy-WEd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V3c-au-mLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2784.8000000000002" y="138.98050974512745"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="4qk-Wm-q1j">
+            <objects>
+                <viewController id="4Mc-wb-HCS" customClass="MovieDetailsViewController" customModule="Netflix_Watchlist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T27-BV-MHH"/>
+                        <viewControllerLayoutGuide type="bottom" id="HrL-gq-p7f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bVf-52-Pfw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Cd-1N-N2m">
+                                <rect key="frame" x="16" y="72" width="159" height="197"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ct9-5Z-GxY">
+                                <rect key="frame" x="16" y="629" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.91574018300000004" blue="0.78587452570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add to Watchlist"/>
+                                <connections>
+                                    <segue destination="2bb-BJ-jao" kind="show" id="Umm-mV-Cef"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="addToWLButton" destination="Ct9-5Z-GxY" id="kpA-4U-TtP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mYo-ot-Sy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3146" y="860"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="3Vx-Dx-2wX">
+            <objects>
+                <viewController id="5eA-De-SRC" customClass="SearchViewController" customModule="Netflix_Watchlist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CF6-u1-J2a"/>
+                        <viewControllerLayoutGuide type="bottom" id="d32-IU-Bqj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BK0-MN-DQV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gjm-aD-SFh">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="upF-c2-XfW">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="5F4-Z5-ZfI" customClass="SearchViewCell" customModule="Netflix_Watchlist" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5F4-Z5-ZfI" id="0hK-M9-PhH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qhh-z9-HA3">
+                                                            <rect key="frame" x="8" y="8" width="71" height="83"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ww4-Pa-RCX">
+                                                            <rect key="frame" x="87" y="8" width="280" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w75-Co-pua">
+                                                            <rect key="frame" x="87" y="39" width="280" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14M-8G-Rgy">
+                                                            <rect key="frame" x="87" y="68" width="280" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="posterImageView" destination="Qhh-z9-HA3" id="JxF-Jt-lcR"/>
+                                                    <outlet property="titleLabel" destination="ww4-Pa-RCX" id="FEZ-aB-pcw"/>
+                                                    <outlet property="typeLabel" destination="14M-8G-Rgy" id="apG-Mo-0dW"/>
+                                                    <outlet property="yearLabel" destination="w75-Co-pua" id="ch7-ZY-d6R"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="YZp-cZ-8Y2">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gjm-aD-SFh" firstAttribute="trailing" secondItem="YZp-cZ-8Y2" secondAttribute="trailing" id="4yh-h1-zua"/>
+                            <constraint firstItem="Gjm-aD-SFh" firstAttribute="top" secondItem="YZp-cZ-8Y2" secondAttribute="bottom" id="BxB-7k-W7D"/>
+                            <constraint firstItem="Gjm-aD-SFh" firstAttribute="top" secondItem="BK0-MN-DQV" secondAttribute="top" constant="108" id="M4y-RB-94h"/>
+                            <constraint firstAttribute="trailing" secondItem="Gjm-aD-SFh" secondAttribute="trailing" id="MQX-Iv-bLt"/>
+                            <constraint firstItem="Gjm-aD-SFh" firstAttribute="leading" secondItem="YZp-cZ-8Y2" secondAttribute="leading" id="NKy-jD-ezZ"/>
+                            <constraint firstItem="d32-IU-Bqj" firstAttribute="top" secondItem="Gjm-aD-SFh" secondAttribute="bottom" id="W80-qu-HHG"/>
+                            <constraint firstItem="Gjm-aD-SFh" firstAttribute="leading" secondItem="BK0-MN-DQV" secondAttribute="leading" id="qCY-FW-Knf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="YZp-cZ-8Y2" id="FJj-XS-gk6"/>
+                        <outlet property="tableView" destination="upF-c2-XfW" id="fjG-P9-K0H"/>
+                        <segue destination="4Mc-wb-HCS" kind="show" id="G2z-Ir-pys"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72V-8p-cD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3541.5999999999999" y="138.98050974512745"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="g0c-nx-Xei">
+        <scene sceneID="hbv-5X-jpH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UgN-Wc-mO2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hGa-Jb-LU7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xqe-f5-Vnz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PFV-27-H2D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KbF-K6-HuC"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2mu-la-rux"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SdY-f3-usj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AXz-k2-5LS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="792.95352323838085"/>
+            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ymq-8Q-USb"/>
+    </inferredMetricsTieBreakers>
 </document>
