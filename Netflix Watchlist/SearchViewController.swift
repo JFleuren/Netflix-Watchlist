@@ -18,10 +18,14 @@ class SearchViewController: UIViewController, UISearchBarDelegate{
     var lookUpNetflix = OmdbSearch()
     
     // Movie class to temporarely store movie results to display
-    var movies = [MovieSearchNetflix]()
+    var movies = [MovieDetails]()
     
     // indicatie if a search is active
     var searchActive : Bool = false
+    
+    // movietitle in current cell which is clicked on will be stored here so it can send the title with the seque performed
+    var movieTitlePass: [String: String]!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +58,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate{
     
     // called whenever text is changed.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.movies.removeAll()
-//        self.movies = [MovieSearchNetflix]()
-        self.movies = lookUpNetflix.searchDataBases(searchkeyword: searchText)
+  
+        DispatchQueue.main.async() { () -> Void in
+            self.movies = self.lookUpNetflix.searchDataBases(searchkeyword: searchText)
+        }
+        
         self.tableView.reloadData()
     }
 
@@ -87,13 +93,27 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         
         let indexPath = tableView.indexPathForSelectedRow!
         
-        _ = tableView.cellForRow(at: indexPath) as! SearchViewCell
+        let currentcell = tableView.cellForRow(at: indexPath) as! SearchViewCell
 
-//        // Get Cell Label
-//        movieTitlePass = currentcell.titelLabel.text
-//        print("++++++ SEQUE PERFORMED+++++")
+        // Get Cell Label
+        movieTitlePass = [currentcell.titleLabel.text!: currentcell.netflixRate.text!]
         
-        self.performSegue(withIdentifier: "reuseID", sender: self)
+        print("++++++ \(movieTitlePass)+++++")
+        
+        self.performSegue(withIdentifier: "toDetails", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "toDetails") {
+            // initialize new view controller and cast it as your view controller
+            let MovieDetailVC = segue.destination as! MovieDetailsViewController
+            // your new view controller should have property that will store passed value
+            MovieDetailVC.titleAndRate = movieTitlePass
+            
+        }else { print("no segue is performed")}
+        
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,9 +126,17 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
             cell.categoryLabel?.text = self.movies[indexPath.row].category
             cell.netflixRate?.text = "Netflix Score: \(self.movies[indexPath.row].netflixRate)"
             
-            if let checkedUrl = URL(string: "\(self.movies[indexPath.row].poster)") {
-                 cell.downloadImage(url: checkedUrl)
-                }
+            if let url = URL(string: "\(self.movies[indexPath.row].poster)") {
+                print("Download Started")
+                URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
+                    guard let data = data, error == nil else { return }
+                    print(response?.suggestedFilename ?? url.lastPathComponent)
+                    print("Download Finished")
+                    DispatchQueue.main.async() { () -> Void in
+                        cell.imageView?.image = UIImage(data: data)
+                    }
+                }).resume()
+            }
         }
         else{print("No more movies to print")}
         

@@ -109,7 +109,7 @@ extension WatchListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
-    //TODO: CREATE SEQUE TO THE DETAIL VC
+  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print("You selected cell #\(indexPath.row)!")
@@ -122,8 +122,30 @@ extension WatchListViewController: UITableViewDataSource, UITableViewDelegate {
         //        movieTitlePass = currentcell.titelLabel.text
         //        print("++++++ SEQUE PERFORMED+++++")
         
-        self.performSegue(withIdentifier: "reuseID", sender: self)
+        self.performSegue(withIdentifier: "toMovieDetails", sender: self)
     }
+    
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "searchSegue") {
+            // initialize new view controller and cast it as your view controller
+            let SearchVC = segue.destination as! SearchViewController
+            // your new view controller should have property that will store passed value
+            
+            //            WatchListVC.titleAndRate = movieTitlePass
+            
+        }
+        if (segue.identifier == "toMovieDetails"){
+             let MovieDetailVC = segue.destination as! MovieDetailsViewController
+        }
+        else { print("no segue is performed")}
+
+    }
+
+    
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         

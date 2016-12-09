@@ -10,19 +10,19 @@ import Foundation
 
 class NetflixCheck {
     
-    var movies = [MovieSearchNetflix]()
-    
-    func searchNetflix(title: String) -> Array<MovieSearchNetflix> {
+    var movies = [MovieDetails]()
+
+    func searchNetflix(titles: [String]) -> Array<MovieDetails> {
+
+       for title in titles {
         
-//        for title in titles {
-        
+        print("______________\(title)_____________")
             var pickedTitle = title
             pickedTitle = pickedTitle.replacingOccurrences(of: " ", with: "%20")
             let link = URL(string: "https://netflixroulette.net/api/api.php?title=\(pickedTitle)")
             print (link!)
 
             URLSession.shared.dataTask(with: link!, completionHandler: { (data, response, error) -> Void in
-                
                 if let httpResponse = response as? HTTPURLResponse {
                     if (httpResponse.statusCode == 200) {
                         
@@ -31,7 +31,7 @@ class NetflixCheck {
                             do {
                                 let dictionary = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
                                                                 
-                                let movie = MovieSearchNetflix()
+                                let movie = MovieDetails()
                                 
                                 movie.title = dictionary["show_title"] as! String
                                 print(movie.title)
@@ -51,9 +51,9 @@ class NetflixCheck {
                     }
                 }
             }).resume()
-//        }
-        
+        }
         return movies
+        
     }
     
 }

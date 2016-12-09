@@ -10,7 +10,7 @@
 
 import Foundation
 
-class MovieSearchNetflix {
+class MovieDetails {
     
     var poster = ""
     
@@ -18,6 +18,17 @@ class MovieSearchNetflix {
     var year = ""
     var category = ""
     var netflixRate = ""
+    
+    var type = ""
+    var released = ""
+    var genre = ""
+    var plot = ""
+    var cast = ""
+    var runtime = ""
+    var director = ""
+    var writer = ""
+    var imdbRate = ""
+    
     
     var posterUrl: URL?
  
