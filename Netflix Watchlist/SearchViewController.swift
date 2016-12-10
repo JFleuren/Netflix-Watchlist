@@ -96,7 +96,10 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         let currentcell = tableView.cellForRow(at: indexPath) as! SearchViewCell
 
         // Get Cell Label
-        movieTitlePass = [currentcell.titleLabel.text!: currentcell.netflixRate.text!]
+        movieTitlePass = ["title": currentcell.titleLabel.text!,
+                          "nfRate": currentcell.netflixRate.text!,
+                          "hideWLButton": "no"
+        ]
         
         print("++++++ \(movieTitlePass)+++++")
         
@@ -121,21 +124,42 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchViewCell
         
         if self.movies.isEmpty == false{
-            cell.titleLabel?.text = self.movies[indexPath.row].title
-            cell.yearLabel?.text = self.movies[indexPath.row].year
-            cell.categoryLabel?.text = self.movies[indexPath.row].category
-            cell.netflixRate?.text = "Netflix Score: \(self.movies[indexPath.row].netflixRate)"
+//            cell.titleLabel?.text = self.movies[indexPath.row].title
+//            cell.yearLabel?.text = self.movies[indexPath.row].year
+//            cell.categoryLabel?.text = self.movies[indexPath.row].category
+//            cell.netflixRate?.text = "Netflix Score: \(self.movies[indexPath.row].netflixRate)"
+//            
+//            if let url = URL(string: "\(self.movies[indexPath.row].poster)") {
+//                print("Download Started")
+//                URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
+//                    guard let data = data, error == nil else { return }
+//                    print(response?.suggestedFilename ?? url.lastPathComponent)
+//                    print("Download Finished")
+//                    DispatchQueue.main.async() { () -> Void in
+//                        cell.imageView?.image = UIImage(data: data)
+//                    }
+//                }).resume()
+//            }
             
-            if let url = URL(string: "\(self.movies[indexPath.row].poster)") {
-                print("Download Started")
-                URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
-                    guard let data = data, error == nil else { return }
-                    print(response?.suggestedFilename ?? url.lastPathComponent)
-                    print("Download Finished")
-                    DispatchQueue.main.async() { () -> Void in
-                        cell.imageView?.image = UIImage(data: data)
-                    }
-                }).resume()
+            DispatchQueue.main.async() { () -> Void in
+                cell.titleLabel?.text = self.movies[indexPath.row].title
+                cell.yearLabel?.text = self.movies[indexPath.row].year
+                cell.categoryLabel?.text = self.movies[indexPath.row].category
+                cell.netflixRate?.text = "Netflix Score: \(self.movies[indexPath.row].netflixRate)"
+                
+                if let url = URL(string: "\(self.movies[indexPath.row].poster)") {
+                    cell.imageView!.contentMode = .scaleAspectFit
+                    print(url)
+                    URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
+                        guard let data = data, error == nil else { return }
+                        print(response?.suggestedFilename ?? url.lastPathComponent)
+                        print("Download Finished")
+                        DispatchQueue.main.async() { () -> Void in
+                            cell.imageView!.image = UIImage(data: data)
+                            cell.setNeedsLayout() //invalidate current layout
+                        }
+                    }).resume()
+                }
             }
         }
         else{print("No more movies to print")}
@@ -143,6 +167,20 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
         
     }
+//    
+//    func downloadImage(url: URL) {
+//        print ("&&&&&&&&&&&&\(url)&&&&&&&&&&&&")
+//        print("Download Started")
+//        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
+//            guard let data = data, error == nil else { return }
+//            print(response?.suggestedFilename ?? url.lastPathComponent)
+//            print("Download Finished")
+//            DispatchQueue.main.async() { () -> Void in
+//                cell.imageView.image = UIImage(data: data)
+//            }
+//        }).resume()
+//    }
+    
 
 }
 

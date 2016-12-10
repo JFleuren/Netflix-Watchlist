@@ -12,7 +12,9 @@ import Foundation
 class OmdbSearch {
     
     var movies = [MovieDetails]()
+    
     var titles = [String]()
+    var posters = [String]()
     
     var netflix = NetflixCheck()
     
@@ -33,13 +35,17 @@ class OmdbSearch {
                             
                             if self.titles.isEmpty == false{
                                 self.titles.removeAll()
-                                self.titles = [String]()
                                 }
+                            if self.posters.isEmpty == false{
+                                self.posters.removeAll()
+                            }
+
                             if let jsonMovies = dictionary["Search"] as? [AnyObject]{
                                 for jsonMovie in jsonMovies {
                                     let title = jsonMovie["Title"] as! String
-                                    print(title)
+                                    let poster = jsonMovie["Poster"] as! String
                                     self.titles.append(title)
+                                    self.posters.append(poster)
                                 }
                             }
                             
@@ -53,6 +59,7 @@ class OmdbSearch {
         }).resume()
 
         print ("**********FOUND BY OMDB \(titles) *************")
+        print ("**********FOUND BY OMDB \(posters) *************")
         
         
 //        DispatchQueue.main.async() { () -> Void in
@@ -63,7 +70,7 @@ class OmdbSearch {
 //             movies = netflix.searchNetflix(titles: titles)
 //        }
 
-        self.movies = self.netflix.searchNetflix(titles: self.titles)
+        self.movies = self.netflix.searchNetflix(titles: self.titles, posters: posters)
         
         print ("++++++++++FOUND BY NETFLIX \(movies) +++++++++++++")
         return movies

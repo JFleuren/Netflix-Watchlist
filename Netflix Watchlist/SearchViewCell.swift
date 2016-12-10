@@ -28,19 +28,5 @@ class SearchViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-//    func downloadImage(url: URL) {
-////        print (url)
-//        print("Download Started")
-//        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
-//            guard let data = data, error == nil else { return }
-//            print(response?.suggestedFilename ?? url.lastPathComponent)
-//            print("Download Finished")
-//            DispatchQueue.main.async() { () -> Void in
-//                self.posterImageView.contentMode = .scaleAspectFit
-//                self.posterImageView.image = UIImage(data: data)
-////                print (self.posterImageView.image?.description)
-//            }
-//        }).resume()
-//    }
 
 }

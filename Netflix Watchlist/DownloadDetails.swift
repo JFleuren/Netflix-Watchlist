@@ -35,14 +35,13 @@ class DownloadDetails {
                             movie.imdbRate = dictionary["imdbRating"] as! String
                             movie.genre = dictionary["Genre"] as! String
                             movie.plot = dictionary["Plot"] as! String
-                            movie.cast = dictionary["Cast"] as! String
+                            movie.actors = dictionary["Actors"] as! String
                             movie.runtime = dictionary["Runtime"] as! String
                             movie.director = dictionary["Director"] as! String
                             movie.writer = dictionary["Writer"] as! String
                             
                             movie.netflixRate = NFRate
-                            movie.poster = dictionary["poster"] as! String
-                            movie.posterUrl = movie.createPosterUrl(url: movie.poster)
+                            movie.poster = dictionary["Poster"] as! String
                             
                         } catch {
                             print("Failed to convert to JSON")

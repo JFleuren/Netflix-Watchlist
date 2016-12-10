@@ -23,19 +23,11 @@ class MovieDetails {
     var released = ""
     var genre = ""
     var plot = ""
-    var cast = ""
+    var actors = ""
     var runtime = ""
     var director = ""
     var writer = ""
     var imdbRate = ""
-    
-    
-    var posterUrl: URL?
- 
-    func createPosterUrl(url: String) -> URL{
-        let posterLink =  URL(string: "\(url)")
-        return posterLink!
-    }
     
 
 }

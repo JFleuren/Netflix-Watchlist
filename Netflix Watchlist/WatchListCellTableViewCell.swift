@@ -10,17 +10,14 @@ import UIKit
 
 class WatchListCellTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var runtimeLabel: UILabel!
     @IBOutlet weak var netflixRateLabel: UILabel!
     
-    
     @IBOutlet weak var posterImageView: UIImageView!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

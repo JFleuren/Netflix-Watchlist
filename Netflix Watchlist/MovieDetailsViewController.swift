@@ -20,10 +20,15 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var runtimeLabel: UILabel!
-    @IBOutlet weak var castLabel: UILabel!
+    @IBOutlet weak var actorsLabel: UILabel!
+    
+    @IBOutlet weak var netflixRateLabel: UILabel!
+    @IBOutlet weak var imdbRateLabel: UILabel!
     
     
     var titleAndRate: [String: String]!
+    
+    var movieToWL: [String: String]!
     
     var movieDetails = DownloadDetails()
     
@@ -31,6 +36,45 @@ class MovieDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let title = titleAndRate["title"]!
+        let rate = titleAndRate["nfRate"]!
+    
+        if (titleAndRate["hideWLButton"] == "yes" ){
+            addToWLButton.isHidden = true
+        }
+        else {
+            addToWLButton.isHidden = false
+        }
+        
+        movie = movieDetails.titleDownload(titleDetail: title, NFRate: rate)
+        
+        DispatchQueue.main.async() { () -> Void in
+            self.titleLabel.text = self.movie.title
+            self.yearLabel.text = self.movie.year
+            self.typeLabel.text = "Type: \(self.movie.type)"
+            self.releasedLabel.text = self.movie.released
+            self.genreLabel.text = self.movie.genre
+            self.runtimeLabel.text = self.movie.runtime
+            self.actorsLabel.text = self.movie.actors
+            self.netflixRateLabel.text = self.movie.netflixRate
+            self.imdbRateLabel.text = "IMDB Rating: \(self.movie.imdbRate)"
+           
+            if let url = URL(string: "\(self.movie.poster)"){
+                self.moviePosterView.contentMode = .scaleAspectFit
+                URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
+                    guard let data = data, error == nil else { return }
+                    print(response?.suggestedFilename ?? url.lastPathComponent)
+                    DispatchQueue.main.async() { () -> Void in
+                        self.moviePosterView.image = UIImage(data: data)
+                    }
+                }).resume()
+
+            }
+        }
+        
+        
+        print("End of code. The image will continue downloading in the background and it will be loaded when it ends.")
 
         // Do any additional setup after loading the view.
     }
@@ -38,26 +82,8 @@ class MovieDetailsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        
-        print (titleAndRate)
-        for (titleC, rate) in titleAndRate {
-            let title = titleC
-            movie = movieDetails.titleDownload(titleDetail: title, NFRate: rate)
-        }
-        
-        DispatchQueue.main.async() { () -> Void in
-            self.titleLabel.text = self.movie.title
-            self.yearLabel.text = self.movie.year
-            self.typeLabel.text = self.movie.type
-        }
-        
-        if let checkedUrl = URL(string: "\(movie.poster)") {
-            self.moviePosterView.contentMode = .scaleAspectFit
-            self.downloadImage(url: checkedUrl)}
-        print("End of code. The image will continue downloading in the background and it will be loaded when it ends.")
     }
     
-//
     @IBAction func addToWLTapped(_ sender: Any) {
         // Get Cell Label
 //        movieTitlePass = [currentcell.titleLabel.text!: currentcell.netflixRate.text!]
@@ -71,24 +97,20 @@ class MovieDetailsViewController: UIViewController {
             let WatchListVC = segue.destination as! WatchListViewController
             // your new view controller should have property that will store passed value
            
-//            WatchListVC.titleAndRate = movieTitlePass
+            movieToWL = [ "title":self.movie.title,
+                              "type":self.movie.type,
+                              "year":self.movie.year,
+                              "runtime":self.movie.runtime,
+                              "netflixRate":self.movie.netflixRate,
+                              "poster":self.movie.poster
+            ]
+            
+            WatchListVC.movieAdd = movieToWL
             
         }else { print("no segue is performed")}
         
     }
     
-    func downloadImage(url: URL) {
-        print (url)
-        print("Download Started")
-        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
-            guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
-            DispatchQueue.main.async() { () -> Void in
-                self.moviePosterView.image = UIImage(data: data)
-            }
-        }).resume()
-    }
     
     /*
     // MARK: - Navigation

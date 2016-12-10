@@ -11,7 +11,12 @@ import Firebase
 
 class WatchListViewController: UIViewController {
     
-    var movies: [Movie] = []
+    var movies: [MovieDetails] = []
+    
+    var movieAdd: [String: String] = [:]
+    
+    // movietitle in current cell which is clicked on will be stored here so it can send the title with the seque performed
+    var movieTitlePass: [String: String]!
     
     let ref = FIRDatabase.database().reference(withPath: "movie-list")
     
@@ -32,24 +37,27 @@ class WatchListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
 
         // Retrieve all the movies from the database every time there is a change
         // Is a Listener meaning that everytime something updates like delte, this is called again
-        ref.observe(.value, with: { snapshot in
-            // 2
-            var newMovies: [Movie] = []
-            
-            // 3
-            for movie in snapshot.children {
-                // 4
-                let MovieItem = Movie(snapshot: movie as! FIRDataSnapshot)
-                newMovies.append(MovieItem)
-            }
-            
-            // 5
-            self.movies = newMovies
-            self.tableView.reloadData()
-        })
+//        ref.observe(.value, with: { snapshot in
+//            // 2
+//            var newMovies: [Movie] = []
+//            
+//            // 3
+//            for movie in snapshot.children {
+//                // 4
+//                let MovieItem = Movie(snapshot: movie as! FIRDataSnapshot)
+//                newMovies.append(MovieItem)
+//            }
+//            
+//            // 5
+//            self.movies = newMovies
+//            self.tableView.reloadData()
+//        })
         
         
         FIRAuth.auth()!.addStateDidChangeListener { auth, user in
@@ -76,6 +84,18 @@ class WatchListViewController: UIViewController {
             }
         })
         
+        if movieAdd.isEmpty == false {
+            let movie = MovieDetails()
+            movie.title = movieAdd["title"]!
+            print("%%%%%%%%%%\(movie.title)%%%%%%%%%%")
+            movie.type = movieAdd["type"]!
+            movie.year = movieAdd["year"]!
+            movie.runtime = movieAdd["runtime"]!
+            movie.netflixRate = movieAdd["netflixRate"]!
+            movie.poster = movieAdd["poster"]!
+            self.movies.append(movie)
+        }
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,18 +115,16 @@ class WatchListViewController: UIViewController {
     */
     
     @IBAction func searchButtonTapped(_ sender: Any) {
-        
         self.performSegue(withIdentifier: "searchSegue", sender: self)
     }
     
-
 }
 
 extension WatchListViewController: UITableViewDataSource, UITableViewDelegate {
     
-    
     // returns the number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("There are \(self.movies.count) movies found at the netflix WatchList")
         return movies.count
     }
   
@@ -118,34 +136,32 @@ extension WatchListViewController: UITableViewDataSource, UITableViewDelegate {
         
         let currentcell = tableView.cellForRow(at: indexPath) as! WatchListCellTableViewCell
         
-        //        // Get Cell Label
-        //        movieTitlePass = currentcell.titelLabel.text
-        //        print("++++++ SEQUE PERFORMED+++++")
+        // Get Cell Label
+        movieTitlePass = ["title": currentcell.titleLabel.text!,
+                          "nfRate": currentcell.netflixRateLabel.text!,
+                        "hideWLButton": "yes"
+        ]
+        
+        print("++++++ \(movieTitlePass)+++++")
         
         self.performSegue(withIdentifier: "toMovieDetails", sender: self)
     }
     
-    
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if (segue.identifier == "searchSegue") {
-            // initialize new view controller and cast it as your view controller
-            let SearchVC = segue.destination as! SearchViewController
-            // your new view controller should have property that will store passed value
-            
-            //            WatchListVC.titleAndRate = movieTitlePass
-            
-        }
+//        
+//        if (segue.identifier == "searchSegue") {
+//            // initialize new view controller and cast it as your view controller
+//            let SearchVC = segue.destination as! SearchViewController
+//            // your new view controller should have property that will store passed value
+//            
+//        }
         if (segue.identifier == "toMovieDetails"){
              let MovieDetailVC = segue.destination as! MovieDetailsViewController
+            MovieDetailVC.titleAndRate = movieTitlePass
         }
         else { print("no segue is performed")}
 
     }
-
-    
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
@@ -154,7 +170,7 @@ extension WatchListViewController: UITableViewDataSource, UITableViewDelegate {
             self.tableView.beginUpdates()
             self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
             let movieItem = self.movies[indexPath.row]
-            movieItem.ref?.removeValue()
+//            movieItem.ref?.removeValue()
             self.tableView.endUpdates()
             self.tableView.reloadData()
             }
@@ -168,17 +184,32 @@ extension WatchListViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WatchListCellTableViewCell
         
         if self.movies.isEmpty == false{
-            cell.titleLabel?.text = self.movies[indexPath.row].title
-            cell.yearLabel?.text = self.movies[indexPath.row].year
-            cell.typeLabel?.text = self.movies[indexPath.row].type
-            cell.runtimeLabel?.text = self.movies[indexPath.row].runtime
-            cell.netflixRateLabel?.text = self.movies[indexPath.row].netflixRate
+            DispatchQueue.main.async() { () -> Void in
+                cell.titleLabel?.text = self.movies[indexPath.row].title
+                
+                print("@@@@@@@@@@@@\(self.movies[indexPath.row].title)@@@@@@@@@@")
+                cell.yearLabel?.text = self.movies[indexPath.row].year
+                cell.typeLabel?.text = self.movies[indexPath.row].type
+                cell.runtimeLabel?.text = self.movies[indexPath.row].runtime
+                cell.netflixRateLabel?.text = self.movies[indexPath.row].netflixRate
+                
+                if let url = URL(string: "\(self.movies[indexPath.row].poster)") {
+                    cell.imageView!.contentMode = .scaleAspectFit
+                    print(url)
+                    URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
+                        guard let data = data, error == nil else { return }
+                        print(response?.suggestedFilename ?? url.lastPathComponent)
+                        print("Download Finished")
+                        DispatchQueue.main.async() { () -> Void in
+                            cell.imageView!.image = UIImage(data: data)
+                            cell.setNeedsLayout() //invalidate current layout
+                        }
+                    }).resume()
+                }
+            }
+
         }
         else{print("No more movies to print")}
-        
         return cell
-        
     }
-    
-    
 }
