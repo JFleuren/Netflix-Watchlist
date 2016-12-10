@@ -333,9 +333,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ct9-5Z-GxY">
-                                <rect key="frame" x="16" y="629" width="343" height="30"/>
+                                <rect key="frame" x="16" y="629" width="159" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.91574018300000004" blue="0.78587452570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.92397449259999997" green="0.95686274510000002" blue="0.83674274169999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Add to Watchlist"/>
                                 <connections>
                                     <action selector="addToWLTapped:" destination="4Mc-wb-HCS" eventType="touchUpInside" id="ByJ-ru-U7U"/>
@@ -362,6 +362,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="131-Ym-4d2">
+                                <rect key="frame" x="183" y="629" width="159" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go to Watchlist"/>
+                                <connections>
+                                    <action selector="goToWLTapped:" destination="4Mc-wb-HCS" eventType="touchUpInside" id="JA2-x0-wit"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -369,6 +377,7 @@
                         <outlet property="actorsLabel" destination="6FJ-ku-BGO" id="KaL-Ww-r4R"/>
                         <outlet property="addToWLButton" destination="Ct9-5Z-GxY" id="kpA-4U-TtP"/>
                         <outlet property="genreLabel" destination="vmq-qU-Rad" id="Adv-6n-1gL"/>
+                        <outlet property="goToWLButton" destination="131-Ym-4d2" id="9TS-s0-7R4"/>
                         <outlet property="imdbRateLabel" destination="jLX-uX-l4x" id="gRH-Z4-Hdi"/>
                         <outlet property="moviePosterView" destination="3Cd-1N-N2m" id="Fxq-lt-u90"/>
                         <outlet property="netflixRateLabel" destination="Vj6-yF-ibN" id="Y5Q-Qf-r88"/>
@@ -378,11 +387,12 @@
                         <outlet property="typeLabel" destination="dik-1g-dls" id="kwE-Q6-eqK"/>
                         <outlet property="yearLabel" destination="78U-gR-GSP" id="nzX-Lm-SnR"/>
                         <segue destination="2bb-BJ-jao" kind="show" identifier="addTap" id="h3U-QI-v9c"/>
+                        <segue destination="2bb-BJ-jao" kind="show" identifier="backToWL" id="tZ6-La-dDm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYo-ot-Sy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557.5999999999999" y="1073.6131934032985"/>
+            <point key="canvasLocation" x="3148" y="953.07346326836591"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="3Vx-Dx-2wX">
@@ -502,7 +512,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="h3U-QI-v9c"/>
+        <segue reference="tZ6-La-dDm"/>
         <segue reference="hAf-4F-Qzl"/>
     </inferredMetricsTieBreakers>
 </document>

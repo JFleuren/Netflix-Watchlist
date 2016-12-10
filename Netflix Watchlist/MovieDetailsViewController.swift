@@ -11,6 +11,8 @@ import UIKit
 class MovieDetailsViewController: UIViewController {
     
     @IBOutlet weak var addToWLButton: UIButton!
+    @IBOutlet weak var goToWLButton: UIButton!
+    
     
     @IBOutlet weak var moviePosterView: UIImageView!
     
@@ -42,9 +44,11 @@ class MovieDetailsViewController: UIViewController {
     
         if (titleAndRate["hideWLButton"] == "yes" ){
             addToWLButton.isHidden = true
+            goToWLButton.isHidden = true
         }
         else {
             addToWLButton.isHidden = false
+            goToWLButton.isHidden = false
         }
         
         movie = movieDetails.titleDownload(titleDetail: title, NFRate: rate)
@@ -69,13 +73,8 @@ class MovieDetailsViewController: UIViewController {
                         self.moviePosterView.image = UIImage(data: data)
                     }
                 }).resume()
-
             }
         }
-        
-        
-        print("End of code. The image will continue downloading in the background and it will be loaded when it ends.")
-
         // Do any additional setup after loading the view.
     }
 
@@ -85,13 +84,14 @@ class MovieDetailsViewController: UIViewController {
     }
     
     @IBAction func addToWLTapped(_ sender: Any) {
-        // Get Cell Label
-//        movieTitlePass = [currentcell.titleLabel.text!: currentcell.netflixRate.text!]
         self.performSegue(withIdentifier: "addTap", sender: self)
     }
     
+    @IBAction func goToWLTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "backToWL", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if (segue.identifier == "addTap") {
             // initialize new view controller and cast it as your view controller
             let WatchListVC = segue.destination as! WatchListViewController
@@ -104,13 +104,9 @@ class MovieDetailsViewController: UIViewController {
                               "netflixRate":self.movie.netflixRate,
                               "poster":self.movie.poster
             ]
-            
             WatchListVC.movieAdd = movieToWL
-            
         }else { print("no segue is performed")}
-        
     }
-    
     
     /*
     // MARK: - Navigation

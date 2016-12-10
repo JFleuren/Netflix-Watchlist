@@ -45,19 +45,11 @@ class DownloadDetails {
                             
                         } catch {
                             print("Failed to convert to JSON")
-                        }                    }
-                    
+                        }
+                    }
                 }
             }
         }).resume()
- 
         return movie
     }
-    
-    
-    
-    
-    
-    
-    
 }

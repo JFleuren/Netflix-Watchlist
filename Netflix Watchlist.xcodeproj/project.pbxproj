@@ -81,16 +81,15 @@
 				1442CD2E1DF86FB400D400EB /* Netflix Watchlist.entitlements */,
 				1442CD2C1DF86DB800D400EB /* GoogleService-Info.plist */,
 				1442CD421DF8A7BE00D400EB /* ViewControllers */,
+				14BF7D311DF9D959001F33A2 /* Api functions */,
 				1442CD471DF8A9E400D400EB /* WL and Search CellViews */,
 				1442CD431DF8A7D200D400EB /* User and Item Structs */,
-				14BF7D311DF9D959001F33A2 /* Search Api's */,
 				1442CD101DF8534B00D400EB /* AppDelegate.swift */,
 				14BF7D2D1DF9C845001F33A2 /* MovieDetails.swift */,
 				1442CD171DF8534B00D400EB /* Assets.xcassets */,
 				14BF7D321DF9E560001F33A2 /* Main.storyboard */,
 				1442CD191DF8534B00D400EB /* LaunchScreen.storyboard */,
 				1442CD1C1DF8534B00D400EB /* Info.plist */,
-				14BF7D351DFB0935001F33A2 /* DownloadDetails.swift */,
 			);
 			path = "Netflix Watchlist";
 			sourceTree = "<group>";
@@ -124,13 +123,14 @@
 			name = "WL and Search CellViews";
 			sourceTree = "<group>";
 		};
-		14BF7D311DF9D959001F33A2 /* Search Api's */ = {
+		14BF7D311DF9D959001F33A2 /* Api functions */ = {
 			isa = PBXGroup;
 			children = (
 				14BF7D2B1DF9C789001F33A2 /* OmdbSearch.swift */,
 				14BF7D271DF9C378001F33A2 /* NetflixCheck.swift */,
+				14BF7D351DFB0935001F33A2 /* DownloadDetails.swift */,
 			);
-			name = "Search Api's";
+			name = "Api functions";
 			sourceTree = "<group>";
 		};
 		90F01C9E5A0B5AF5E3B3D8C4 /* Frameworks */ = {
