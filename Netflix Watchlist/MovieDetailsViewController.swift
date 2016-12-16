@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class MovieDetailsViewController: UIViewController {
     
     @IBOutlet weak var addToWLButton: UIButton!
     @IBOutlet weak var goToWLButton: UIButton!
-    
     
     @IBOutlet weak var moviePosterView: UIImageView!
     
@@ -35,9 +35,22 @@ class MovieDetailsViewController: UIViewController {
     var movieDetails = DownloadDetails()
     
     var movie = MovieDetails()
-
+    
+    // Firebase
+    var user: User!
+    
+    let ref = FIRDatabase.database().reference(withPath: "movie-list")
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        FIRAuth.auth()!.addStateDidChangeListener { auth, user in
+            guard let user = user else { return }
+            self.user = User(authData: user)
+
+            print (self.user.email)
+        }
         
         let title = titleAndRate["title"]!
         let rate = titleAndRate["nfRate"]!
@@ -84,8 +97,31 @@ class MovieDetailsViewController: UIViewController {
     }
     
     @IBAction func addToWLTapped(_ sender: Any) {
+        
+        let firebaseSearchString = self.movie.title
+        
+        let titleAdd = firebaseSearchString.makeFirebaseString()
+        // 2
+        
+        // init(title: String, addedByUser: String, type: String, year: String, runtime: String, netflixRate: String, poster: String, plot: String, genre: String, imdbRate: String, cast: String, director: String)
+        let movieItem = FirebaseMovie(title: self.movie.title,
+                              addedByUser: self.user.email,
+                              type: self.movie.type,
+                              year: self.movie.year,
+                              runtime: self.movie.runtime,
+                              netflixRate: self.movie.netflixRate,
+                              poster: self.movie.poster)
+        
+        // 3
+        let movieItemRef = self.ref.child(titleAdd)
+        
+        // 4
+        movieItemRef.setValue(movieItem.toAnyObject())
+    
         self.performSegue(withIdentifier: "addTap", sender: self)
+        
     }
+   
     
     @IBAction func goToWLTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "backToWL", sender: self)
@@ -105,17 +141,20 @@ class MovieDetailsViewController: UIViewController {
                               "poster":self.movie.poster
             ]
             WatchListVC.movieAdd = movieToWL
+            
         }else { print("no segue is performed")}
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+}
+extension String {
+    func makeFirebaseString()->String{
+        let arrCharacterToReplace = [".","#","$","[","]"]
+        var finalString = self
+        
+        for character in arrCharacterToReplace{
+            finalString = finalString.replacingOccurrences(of: character, with: " ")
+        }
+        
+        return finalString
     }
-    */
-
 }

@@ -13,12 +13,14 @@ class SearchViewController: UIViewController, UISearchBarDelegate{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    // Movie class to temporarely store movie results to display
+    var movieTitles = Array<String>()
+    var moviePosters = Array<String>()
+    
     // First searches omdb api for the titles and then checks the titles against netflix's database API
     // Because netflix's API has no search function, only title lookup
-    var lookUpNetflix = OmdbSearch()
+//    var lookUpNetflix = OmdbSearch()
     
-    // Movie class to temporarely store movie results to display
-    var movies = [MovieDetails]()
     
     // indicatie if a search is active
     var searchActive : Bool = false
@@ -26,6 +28,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate{
     // movietitle in current cell which is clicked on will be stored here so it can send the title with the seque performed
     var movieTitlePass: [String: String]!
 
+    var moviecount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +45,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate{
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -58,32 +61,82 @@ class SearchViewController: UIViewController, UISearchBarDelegate{
     
     // called whenever text is changed.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-  
-        DispatchQueue.main.async() { () -> Void in
-            self.movies = self.lookUpNetflix.searchDataBases(searchkeyword: searchText)
-        }
+//        self.movieTitles = Array<String>()
+//        self.moviePosters = Array<String>()
+//        searchDataBases(searchkeyword: searchText)
+
+    }
+
+    @IBAction func searchForMovies(_ sender: Any) {
+        self.movieTitles = Array<String>()
+        self.moviePosters = Array<String>()
+        self.moviecount = 0
+        searchOMDB(searchkeyword: self.searchBar.text!)
+    }
+
+    func searchOMDB(searchkeyword: String) {
         
-        self.tableView.reloadData()
+        var searchkeywords = searchkeyword
+        searchkeywords = searchkeywords.replacingOccurrences(of: " ", with: "+")
+        let link = URL(string: "https://www.omdbapi.com/?s=\(searchkeywords)&r=json")
+        
+        URLSession.shared.dataTask(with: link!, completionHandler: { (data, response, error) -> Void in
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    
+                    if data != nil {
+                        do {
+                            let dictionary = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
+
+                            if let jsonMovies = dictionary["Search"] as? [AnyObject]{
+                                for jsonMovie in jsonMovies {
+                                    let title = jsonMovie["Title"] as! String
+                                    let poster = jsonMovie["Poster"] as! String
+                                    print("!!!\(title)!!!!!")
+                                    self.searchMovieCount(movieTitle: title)
+                                    self.movieTitles.append(title)
+                                    self.moviePosters.append(poster)
+                                }
+                            }
+                            self.tableView.reloadData()
+
+                        } catch {
+                            print("Failed to convert to JSON")
+                        }
+                    }
+                }
+            }
+        }).resume()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func searchMovieCount(movieTitle: String) {
+        var pickedTitle = movieTitle
+        pickedTitle = pickedTitle.replacingOccurrences(of: " ", with: "%20")
+        let link = URL(string: "https://netflixroulette.net/api/api.php?title=\(pickedTitle)")
+        if link != nil {
+            URLSession.shared.dataTask(with: link!, completionHandler: { (data, response, error) -> Void in
+                if let httpResponse = response as? HTTPURLResponse {
+                    if (httpResponse.statusCode == 200) {
+                        if data != nil {
+                            self.moviecount += 1
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }).resume()
+        }
     }
-    */
-
+    
 }
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     // returns the number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         print("There are \(self.movies.count) movies found at the netflix database")
-        return self.movies.count
+         print("There are \(self.moviecount) movies found at the netflix database")
+
+        return self.moviecount
     }
     
     //TODO: CREATE SEQUE TO THE DETAIL VC
@@ -122,65 +175,17 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchViewCell
+
+        if self.movieTitles.isEmpty == false {
+            cell.searchNetflix(movieTitle: self.movieTitles[indexPath.row], moviePoster: self.moviePosters[indexPath.row])
+            cell.setNeedsLayout() //invalidate current layout
+            cell.layoutIfNeeded() //update immediately
         
-        if self.movies.isEmpty == false{
-//            cell.titleLabel?.text = self.movies[indexPath.row].title
-//            cell.yearLabel?.text = self.movies[indexPath.row].year
-//            cell.categoryLabel?.text = self.movies[indexPath.row].category
-//            cell.netflixRate?.text = "Netflix Score: \(self.movies[indexPath.row].netflixRate)"
-//            
-//            if let url = URL(string: "\(self.movies[indexPath.row].poster)") {
-//                print("Download Started")
-//                URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
-//                    guard let data = data, error == nil else { return }
-//                    print(response?.suggestedFilename ?? url.lastPathComponent)
-//                    print("Download Finished")
-//                    DispatchQueue.main.async() { () -> Void in
-//                        cell.imageView?.image = UIImage(data: data)
-//                    }
-//                }).resume()
-//            }
-            
-            DispatchQueue.main.async() { () -> Void in
-                cell.titleLabel?.text = self.movies[indexPath.row].title
-                cell.yearLabel?.text = self.movies[indexPath.row].year
-                cell.categoryLabel?.text = self.movies[indexPath.row].category
-                cell.netflixRate?.text = "Netflix Score: \(self.movies[indexPath.row].netflixRate)"
-                
-                if let url = URL(string: "\(self.movies[indexPath.row].poster)") {
-                    cell.imageView!.contentMode = .scaleAspectFit
-                    print(url)
-                    URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
-                        guard let data = data, error == nil else { return }
-                        print(response?.suggestedFilename ?? url.lastPathComponent)
-                        print("Download Finished")
-                        DispatchQueue.main.async() { () -> Void in
-                            cell.imageView!.image = UIImage(data: data)
-                            cell.setNeedsLayout() //invalidate current layout
-                        }
-                    }).resume()
-                }
-            }
-        }
-        else{print("No more movies to print")}
+        }else{print("No more movies to print")}
         
         return cell
-        
     }
-//    
-//    func downloadImage(url: URL) {
-//        print ("&&&&&&&&&&&&\(url)&&&&&&&&&&&&")
-//        print("Download Started")
-//        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
-//            guard let data = data, error == nil else { return }
-//            print(response?.suggestedFilename ?? url.lastPathComponent)
-//            print("Download Finished")
-//            DispatchQueue.main.async() { () -> Void in
-//                cell.imageView.image = UIImage(data: data)
-//            }
-//        }).resume()
-//    }
-    
+
 
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141BB3DC1E04110600EFC134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141BB3DA1E04110600EFC134 /* Main.storyboard */; };
 		1442CD111DF8534B00D400EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD101DF8534B00D400EB /* AppDelegate.swift */; };
 		1442CD181DF8534B00D400EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1442CD171DF8534B00D400EB /* Assets.xcassets */; };
 		1442CD1B1DF8534B00D400EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1442CD191DF8534B00D400EB /* LaunchScreen.storyboard */; };
@@ -15,19 +16,19 @@
 		1442CD2D1DF86DB800D400EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1442CD2C1DF86DB800D400EB /* GoogleService-Info.plist */; };
 		1442CD331DF873C400D400EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD321DF873C400D400EB /* User.swift */; };
 		1442CD391DF88A9000D400EB /* WatchListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD381DF88A9000D400EB /* WatchListCellTableViewCell.swift */; };
-		1442CD3C1DF8916100D400EB /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD3B1DF8916100D400EB /* Movie.swift */; };
+		1442CD3C1DF8916100D400EB /* FirebaseMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD3B1DF8916100D400EB /* FirebaseMovie.swift */; };
 		1442CD3E1DF8A13C00D400EB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD3D1DF8A13C00D400EB /* SearchViewController.swift */; };
 		1442CD401DF8A4A200D400EB /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD3F1DF8A4A200D400EB /* MovieDetailsViewController.swift */; };
 		1442CD451DF8A81100D400EB /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1442CD441DF8A81100D400EB /* SearchViewCell.swift */; };
 		14BF7D281DF9C378001F33A2 /* NetflixCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF7D271DF9C378001F33A2 /* NetflixCheck.swift */; };
 		14BF7D2C1DF9C789001F33A2 /* OmdbSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF7D2B1DF9C789001F33A2 /* OmdbSearch.swift */; };
 		14BF7D2E1DF9C845001F33A2 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF7D2D1DF9C845001F33A2 /* MovieDetails.swift */; };
-		14BF7D341DF9E560001F33A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BF7D321DF9E560001F33A2 /* Main.storyboard */; };
 		14BF7D361DFB0935001F33A2 /* DownloadDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BF7D351DFB0935001F33A2 /* DownloadDetails.swift */; };
 		8D1A5A7405B6494E18A5A002 /* Pods_Netflix_Watchlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F682464B0C3B00683095C99 /* Pods_Netflix_Watchlist.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		141BB3DB1E04110600EFC134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1442CD101DF8534B00D400EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1442CD171DF8534B00D400EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1442CD1A1DF8534B00D400EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,14 +40,13 @@
 		1442CD2E1DF86FB400D400EB /* Netflix Watchlist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Netflix Watchlist.entitlements"; sourceTree = "<group>"; };
 		1442CD321DF873C400D400EB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1442CD381DF88A9000D400EB /* WatchListCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchListCellTableViewCell.swift; sourceTree = "<group>"; };
-		1442CD3B1DF8916100D400EB /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		1442CD3B1DF8916100D400EB /* FirebaseMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseMovie.swift; sourceTree = "<group>"; };
 		1442CD3D1DF8A13C00D400EB /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1442CD3F1DF8A4A200D400EB /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		1442CD441DF8A81100D400EB /* SearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 		14BF7D271DF9C378001F33A2 /* NetflixCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetflixCheck.swift; sourceTree = "<group>"; };
 		14BF7D2B1DF9C789001F33A2 /* OmdbSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmdbSearch.swift; sourceTree = "<group>"; };
 		14BF7D2D1DF9C845001F33A2 /* MovieDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
-		14BF7D331DF9E560001F33A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14BF7D351DFB0935001F33A2 /* DownloadDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadDetails.swift; sourceTree = "<group>"; };
 		3F682464B0C3B00683095C99 /* Pods_Netflix_Watchlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Netflix_Watchlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6949F0F39AC5B5A46E763DB7 /* Pods-Netflix Watchlist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Netflix Watchlist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Netflix Watchlist/Pods-Netflix Watchlist.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 				1442CD101DF8534B00D400EB /* AppDelegate.swift */,
 				14BF7D2D1DF9C845001F33A2 /* MovieDetails.swift */,
 				1442CD171DF8534B00D400EB /* Assets.xcassets */,
-				14BF7D321DF9E560001F33A2 /* Main.storyboard */,
+				141BB3DA1E04110600EFC134 /* Main.storyboard */,
 				1442CD191DF8534B00D400EB /* LaunchScreen.storyboard */,
 				1442CD1C1DF8534B00D400EB /* Info.plist */,
 			);
@@ -108,7 +108,7 @@
 		1442CD431DF8A7D200D400EB /* User and Item Structs */ = {
 			isa = PBXGroup;
 			children = (
-				1442CD3B1DF8916100D400EB /* Movie.swift */,
+				1442CD3B1DF8916100D400EB /* FirebaseMovie.swift */,
 				1442CD321DF873C400D400EB /* User.swift */,
 			);
 			name = "User and Item Structs";
@@ -221,7 +221,7 @@
 				1442CD1B1DF8534B00D400EB /* LaunchScreen.storyboard in Resources */,
 				1442CD2D1DF86DB800D400EB /* GoogleService-Info.plist in Resources */,
 				1442CD181DF8534B00D400EB /* Assets.xcassets in Resources */,
-				14BF7D341DF9E560001F33A2 /* Main.storyboard in Resources */,
+				141BB3DC1E04110600EFC134 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +286,7 @@
 				1442CD3E1DF8A13C00D400EB /* SearchViewController.swift in Sources */,
 				1442CD451DF8A81100D400EB /* SearchViewCell.swift in Sources */,
 				1442CD331DF873C400D400EB /* User.swift in Sources */,
-				1442CD3C1DF8916100D400EB /* Movie.swift in Sources */,
+				1442CD3C1DF8916100D400EB /* FirebaseMovie.swift in Sources */,
 				1442CD251DF85DFD00D400EB /* LoginViewController.swift in Sources */,
 				1442CD231DF85ADE00D400EB /* WatchListViewController.swift in Sources */,
 				1442CD111DF8534B00D400EB /* AppDelegate.swift in Sources */,
@@ -299,20 +299,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		141BB3DA1E04110600EFC134 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				141BB3DB1E04110600EFC134 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		1442CD191DF8534B00D400EB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1442CD1A1DF8534B00D400EB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		14BF7D321DF9E560001F33A2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14BF7D331DF9E560001F33A2 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
